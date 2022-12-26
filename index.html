@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="prism.css">
+    <title>Personal Code Collection</title>
+</head>
+
+<body>
+    <pre>
+        <h1 class="align">Javascript Code</h1>
+        <code class="language-javascript">
+{*TODO: The request() function is a function 
+from the request library that can be used to
+make HTTP requests. It takes a URL as its 
+first argument and a callback function as 
+its second argument.*}
+
+let url = `https://newsdata.io/api/1/news?apikey=pub_10163278eca6ac85329caeafb15173ef67684&q=Sports`;
+const request = require("request");
+let app = document.querySelector("#app");
+request(url, function (error, response, body) {
+  if (error) {
+    console.error(error);
+  } else {
+    let check = JSON.parse(body);
+    console.log(check);
+    let check2 = check.results
+    check2.forEach((element , index) => {
+        app.innerHTML+=`${index+1}. ${element.title} <br/><br/>`
+    });
+  }
+});
+
+        </code>
+    </pre>
+</body>
+<script src="prism.js"></script>
+
+</html>
