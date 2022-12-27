@@ -11,8 +11,8 @@
 </head>
 
 <body>
+  <h1 class="align">Javascript Code</h1>
     <pre>
-        <h1 class="align">Javascript Code</h1>
         <code class="language-javascript">
 {*TODO: The request() function is a function 
 from the request library that can be used to
@@ -37,6 +37,77 @@ request(url, function (error, response, body) {
 });
 
         </code>
+    </pre>
+    <h1  class="align">React Contest Api</h1>
+    <h3 class="align" >how to use useContest hook</h3>
+    <h4>This is the App.js</h4>
+    <pre>
+      <code class="language-javascript">
+import "./styles.css";
+import One1 from "./One1.jsx";
+import One from "./One.jsx";
+import { createContext } from "react";
+const Count = createContext();
+const Count2 = createContext();
+let contextValue = [
+  {
+  foo: 'bar',
+  baz: 42,
+  number : 12,
+},
+{
+  foo:'bar2',
+  baz: 422,
+  number : 122,
+}];
+const contextValue2 = [{
+  foo: 'ba222r',
+  baz: 42222,
+  number : 12
+}];
+export default function App() {
+  return (
+    <div className="App">
+      <h1>Hello CodeSandbox</h1>
+      <Count.Provider  value = {contextValue} >
+      <Count2.Provider  value = {contextValue2} >
+          <One1/>
+          <One/>
+      </Count2.Provider>
+      </Count.Provider>
+    </div>
+  );
+}
+
+
+this is the one1.jsx 
+
+
+export {Count , Count2};
+
+import React, { useContext, useEffect, useState } from "react";
+import { Count, Count2 } from "./App.js";
+export default function One1({ name, surname, standard }) {
+  const ee = useContext(Count);
+  const l = useContext(Count2);
+  const [value, setvalue] = useState(ee);
+  function changing() {
+  setvalue((r) => r.map((e) => {
+    return {
+      ...e,
+      number: e.number + 1
+    };
+  }));
+    console.log(value[0].number, "and", value[1].number);
+  }
+  return (
+    <>
+      <button onClick={changing}> Click me </button>
+    </>
+  );
+}
+
+      </code>
     </pre>
 </body>
 <script src="prism.js"></script>
