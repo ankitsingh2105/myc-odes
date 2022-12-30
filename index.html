@@ -229,6 +229,48 @@ fs.unlink("./NewFolf/newFile.txt" , (e)=>{
 </code>
 </pre>
 
+<h1 class="align">Node js tutorials async L-3</h1>
+<h3 class="align">Module reading and appending and deleteing</h3>
+<h4>moules- fs , adding , appending , renaming , deleting , creating a folder</h4>
+<pre>
+<code class="language-javascript">
+const fs = require("fs");
+// adding data using asyncs function
+fs.writeFile("newFile.txt", "this is the data" , (error)=>{
+    if(error){
+        console.log("Some error occured");
+    }
+    else{
+        console.log("No error occured")
+    }
+})
+
+// appending data using async function
+
+fs.appendFile("newFile.txt" , "\nthis is a appendned data" , (error)=>{
+    if(error){
+        console.log("some error occured");
+    }
+    else{
+        console.log("file appended with new data sucussfully");
+    }
+})
+
+// reading file using a async function, way;
+
+fs.readFile("newfile.txt" , (error , data)=>{
+    if(error){
+        console.log("some error occured here");
+    }
+    else {
+        console.log("reading file without errors");
+        const newData = data.toString();
+        console.log(newData);  
+    }
+} ) 
+</code>
+</pre>
+
 
 </body>
 <script src="prism.js"></script>
