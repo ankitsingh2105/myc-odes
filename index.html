@@ -421,6 +421,39 @@ server.listen(port, (error) => {
 
 </code>
 </pre>
+<h1 class="align">Node js tutorials L-7</h1>
+<h3 class="align">Event Listeners</h3>
+<h4>calling single and multiple event listeners</h4>
+<pre>
+<code class="language-javascript">
+import http from "http";
+import chalk from "chalk";
+import url from "url";
+import fs from "fs";
+import EventEmitter from "events";
+
+//  Todo : "EventEmitter" is a class ; 
+const event = new EventEmitter();
+
+// todo: we ill define what our event will do
+event.on("sayMyname" , function(status , code){
+    console.log("My name is Ankit Singh Chauhan" , " the status is " , status , " and the code is " , code)
+})
+
+// todo  :" we can call multiple events through one  evnent"
+event.on("sayMyname" , function(status , code){
+    console.log("This is the second calling" , " the status is " , status , " and the code is " , code);
+})
+
+// todo : "this is the third event from a single event";
+event.on("sayMyname" , function(status , code){
+    console.log("This is the third calling" , " the status is " , status , " and the code is " , code);
+})
+// todo: "dealaring an event name";
+event.emit("sayMyname" , "ok" , 200);
+  
+</code>
+</pre>
 
 
 </body>
