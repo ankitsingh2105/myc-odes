@@ -190,32 +190,46 @@ export default function App() {
 <h4>moules- fs , adding , appending , renaming</h4>
 <pre>
 <code class="language-javascript">
-const express = require('express')
-const app = express()
-const port = 3000
-const fs =  require("fs")
+const fs =  require('fs');
+const newFolder =  "./NewFolf";
 
-// todo:  Reading file and adding data;
-fs.writeFileSync("second.pdf" , "aaj toh nodejs zyada aaa gya kya ")
-fs.writeFileSync("second.pdf" , " second function on the go ")
+// Creating a new folder, callback required
+fs.mkdir(newFolder , (sucess)=>{
+        if(sucess){
+            console.log("folder created sucessfully");
+        }
+        else{
+            console.log("some error occured");
+        }
+});
 
-//  todo : "appending data to the existing file";
-fs.appendFileSync("second.pdf" , " \n this is the added shit");
+//  creating a new file and adding data to it 
+fs.writeFileSync("./NewFolf/ank.txt" , "new text on the way");
 
-// Todo: Original data will be in the form of buffer
-const Buffer_data = fs.readFileSync("second.pdf");
-console.log(Buffer_data);
+//  appending data to the existing file
 
-
-// Todo: "Changing data from buffer to string";
-originalData =  Buffer_data.toString();
-console.log(originalData);
+fs.appendFileSync("./NewFolf/ank.txt" , "\nthis is the added version");
 
 
-// TODO : "This is how a rename a file";
-// fs.renameSync("second.pdf" , "newName.pdf");
-      </code>
-    </pre>
+//  adding another file so that i can delete it.
+
+fs.writeFileSync("./Newfolf/newFile.txt" , "This is the new file and\nthis is the first addition");
+
+// removed a file from a folder
+
+fs.unlink("./NewFolf/newFile.txt" , (e)=>{
+        if(e){
+            console.log("sucessully removed the file");
+        }
+        else {
+            console.log("something went wrong");
+        }
+} )
+  
+</code>
+</pre>
+
+
 </body>
 <script src="prism.js"></script>
 
