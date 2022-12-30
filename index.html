@@ -2,17 +2,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="prism.css">
-    <title>Personal Code Collection</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="prism.css">
+  <title>Personal Code Collection</title>
 </head>
 
 <body>
   <h1 class="align">Javascript Code</h1>
-    <pre>
+  <pre>
         <code class="language-javascript">
 {*TODO: The request() function is a function 
 from the request library that can be used to
@@ -38,10 +38,10 @@ request(url, function (error, response, body) {
 
         </code>
     </pre>
-    <h1  class="align">React Contest Api</h1>
-    <h3 class="align" >how to use useContest hook</h3>
-    <h4>This is the App.js</h4>
-    <pre>
+  <h1 class="align">React Contest Api</h1>
+  <h3 class="align">how to use useContest hook</h3>
+  <h4>This is the App.js</h4>
+  <pre>
       <code class="language-javascript">
 import "./styles.css";
 import One1 from "./One1.jsx";
@@ -109,14 +109,14 @@ export default function One1({ name, surname, standard }) {
 
       </code>
     </pre>
-        </code>
-    </pre>
+  </code>
+  </pre>
 
 
-    <h1  class="align">Using redux</h1>
-    <h3 class="align" >replacing multiple hooks</h3>
-    <h4>This is the App.js</h4>
-    <pre>
+  <h1 class="align">Using redux</h1>
+  <h3 class="align">replacing multiple hooks</h3>
+  <h4>This is the App.js</h4>
+  <pre>
       <code class="language-javascript">
 import "./styles.css";
 // import One1 from "./One1.jsx";
@@ -183,6 +183,37 @@ export default function App() {
 }
         
 
+      </code>
+    </pre>
+<h1 class="align">Node js tutorials L-1</h1>
+<h3 class="align">Module reading and appending</h3>
+<h4>moules- fs , adding , appending , renaming</h4>
+<pre>
+<code class="language-javascript">
+const express = require('express')
+const app = express()
+const port = 3000
+const fs =  require("fs")
+
+// todo:  Reading file and adding data;
+fs.writeFileSync("second.pdf" , "aaj toh nodejs zyada aaa gya kya ")
+fs.writeFileSync("second.pdf" , " second function on the go ")
+
+//  todo : "appending data to the existing file";
+fs.appendFileSync("second.pdf" , " \n this is the added shit");
+
+// Todo: Original data will be in the form of buffer
+const Buffer_data = fs.readFileSync("second.pdf");
+console.log(Buffer_data);
+
+
+// Todo: "Changing data from buffer to string";
+originalData =  Buffer_data.toString();
+console.log(originalData);
+
+
+// TODO : "This is how a rename a file";
+// fs.renameSync("second.pdf" , "newName.pdf");
       </code>
     </pre>
 </body>
