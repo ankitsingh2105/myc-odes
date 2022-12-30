@@ -291,6 +291,49 @@ server.listen(3000 , "127.0.0.1" , ()=>{
 </code>
 </pre>
 
+<h1 class="align">Node js tutorials L-4</h1>
+<h3 class="align">Node routing</h3>
+<h4>handled https requests</h4>
+<pre>
+<code class="language-javascript">
+import http from "http";
+import chalk from "chalk";
+import url from "url";
+import { read, write } from "fs";
+
+const port = 9090;
+const color = chalk.red.underline.inverse;
+
+const server = http.createServer((req, res) => {
+    res.setHeader('Content-Type', 'text/plain');
+    if (req.url === '/') {
+        res.end("Hello and welcome to the home page of the website");
+    }
+    else if (req.url === "/about") {
+        res.end("hamare baare mein jaankar kya karoge hum dil mein aate hai samaja m nhi")
+    }
+    else if (req.url === "/contact") {
+        res.end("NUMBER TOH SIRF LADKIYON KO DETA HU");
+    }
+    else {
+        res.writeHead(404 , {"Content-type" :"text/html"});
+        res.end("404 error occured")
+    }
+});
+
+// listening to the port at something 
+server.listen(port, (error) => {
+    if (error) {
+        console.log(color("something went wrong here"));
+    }
+    else {
+        console.log(color("stated listening to the port"));
+    }
+});
+  
+</code>
+</pre>
+
 
 </body>
 <script src="prism.js"></script>
