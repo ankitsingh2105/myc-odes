@@ -448,6 +448,11 @@ server.on("request" , function(req , res){
     rstream.on("end" , ()=>{
         res.end();
     })
+    <!--  Instead of writing all this we can use pipe -->
+    //  reading file
+    const rstream = fs.createReadStream("newJSON.json");
+    //  writing file using pipes
+    rstream.pipe(res);
 
 })
 
