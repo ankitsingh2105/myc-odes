@@ -421,9 +421,9 @@ server.listen(port, (error) => {
 
 </code>
 </pre>
-<h1 class="align">Node js tutorials L-7</h1>
-<h3 class="align">Event Listeners</h3>
-<h4>calling single and multiple event listeners</h4>
+<h1 class="align">Node js tutorials L-8</h1>
+<h3 class="align">Stream in node js</h3>
+<h4>build in events in node js </h4>
 <pre>
 <code class="language-javascript">
 import http from "http";
@@ -431,27 +431,48 @@ import chalk from "chalk";
 import url from "url";
 import fs from "fs";
 import EventEmitter from "events";
+let color =  chalk.yellow.underline.inverse;
+let color1 =  chalk.red.underline.inverse;
+let color2 =  chalk.blue.underline.inverse;
+let event = new EventEmitter() ; 
+const port =9090; 
+const server = http.createServer();
+server.on("request" , function(req , res){
+    const rstream = fs.createReadStream("newJSON.json");
+    rstream.on("data" ,(data)=>{
+        res.end(data);
+    })
+    rstream.on("error" , ()=>{
+        res.end("soemthing went wrong here")
+    })
+    rstream.on("end" , ()=>{
+        res.end();
+    })
 
-//  Todo : "EventEmitter" is a class ; 
-const event = new EventEmitter();
-
-// todo: we ill define what our event will do
-event.on("sayMyname" , function(status , code){
-    console.log("My name is Ankit Singh Chauhan" , " the status is " , status , " and the code is " , code)
 })
 
-// todo  :" we can call multiple events through one  evnent"
-event.on("sayMyname" , function(status , code){
-    console.log("This is the second calling" , " the status is " , status , " and the code is " , code);
+server.listen(port , (error)=>{
+    if(error){
+        console.log(error);
+    }
+    else{
+        console.log("good work!!");
+    }
 })
 
-// todo : "this is the third event from a single event";
-event.on("sayMyname" , function(status , code){
-    console.log("This is the third calling" , " the status is " , status , " and the code is " , code);
-})
-// todo: "dealaring an event name";
-event.emit("sayMyname" , "ok" , 200);
-  
+
+// In Node.js, there are several built-in events that are related to streaming data. These events are emitted by stream objects, which allow you to read or write data in a continuous flow.
+
+// Some examples of built-in events related to streaming in Node.js include:
+
+// 'data': emitted when data is available to be read from a readable stream
+// 'end': emitted when there is no more data to be read from a readable stream
+// 'drain': emitted when a writable stream is no longer full and can accept more data
+// 'error': emitted when an error occurs in a stream
+// 'finish': emitted when all data has been written to a writable stream
+
+
+
 </code>
 </pre>
 
