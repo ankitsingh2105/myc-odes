@@ -534,6 +534,48 @@ server.listen(port , (error)=>{
 </pre>
 
 
+<h1 class="align">Node js tutorials L-8</h1>
+<h3 class="align">Stream in node js</h3>
+<h4>build in events in node js </h4>
+<pre>
+<code class="language-javascript">
+  <h1 class="align">Express js tutorials L-1</h1>
+  <h3 class="align">Stream in express js</h3>
+  <h4>build in events in node js </h4>
+  <pre>
+<code class="language-javascript">
+import express from "express";
+import chalk from "chalk" ;
+import http from "http";
+import fs from "fs";
+let color = chalk.green.underline.inverse;
+let color1 = chalk.blue.underline.inverse;
+let color2 = chalk.red.underline.inverse;
+const app = express();
+let myFile = fs.readFileSync("index.html" , "utf-8" )
+console.log(myFile);
+app.get("/" , (req, res)=>{
+    res.send(myFile)  
+    res.end();
+});
+app.get("/about" , (req, res)=>{
+    res.send("This is ankit singh chauhan and he is trying to learn express")
+    res.end();
+});
+app.listen(9090 , ()=>{
+    console.log(color2("listening at port 9090"));
+})
+
+// get = read ; 
+// post = create;
+// put = update;
+// delete = dalete
+</code>
+  </pre>
+</code>
+</pre>
+
+
 </body>
 <script src="prism.js"></script>
 
