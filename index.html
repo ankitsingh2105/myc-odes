@@ -501,7 +501,9 @@ server.listen(port , (error)=>{
   console.log("ok");
   const url = "https://api.openweathermap.org/data/2.5/forecast?q=Nainital&appid=605b5adc1b1f5d216518eb1c953c563d";
   const replaceval = (original)=>{
-      return htmlFile.replace("{+temp=}" , original.list[0].main.temp);
+    let temp = htmlFile.replace("{+temp=}", original.list[0].main.temp);
+    temp = temp.replace("{+temp=}", original.list[0].main.humidity);
+    return temp;  
   }
   
   const server = http.createServer((req , res)=>{
