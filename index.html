@@ -475,10 +475,60 @@ server.listen(port , (error)=>{
 // 'drain': emitted when a writable stream is no longer full and can accept more data
 // 'error': emitted when an error occurs in a stream
 // 'finish': emitted when all data has been written to a writable stream
-
-
-
 </code>
+</pre>
+
+
+<h1 class="align">Node js tutorials L-9</h1>
+<h3 class="align">making a weather app</h3>
+<h4>api fetching using `requests`</h4>
+<pre>
+  <code class="language-html"  >
+    <h1>give and take</h1>
+    <div>The  temp is -></div>
+    <div>{+temp=}</div>
+    //this will be replaced -->
+</html>`
+  </code>
+</pre>
+<pre>
+<code class="language-javascript">
+  import http from "http";
+  import fs from "fs";
+  import requests from "requests";
+  const htmlFile = fs.readFileSync("index.html" , "utf-8");
+  const port  = 9090;
+  console.log("ok");
+  const url = "https://api.openweathermap.org/data/2.5/forecast?q=Nainital&appid=605b5adc1b1f5d216518eb1c953c563d";
+  const replaceval = (original)=>{
+      return htmlFile.replace("{+temp=}" , original.list[0].main.temp);
+  }
+  
+  const server = http.createServer((req , res)=>{
+      if(req.url==="/"){
+          requests(url).on("data" , (data)=>{
+              const newData = JSON.parse(data);
+              const newOpen = [newData];
+              const reatimedata = newOpen.map((e)=>{
+                  return replaceval(e);
+              }).join("")
+              console.log("is this -> " , reatimedata);
+              res.write(reatimedata);
+          }).on("end" , (error)=>{
+              console.log(error);
+              res.end(); 
+          })
+      }
+  })
+  
+  server.listen(port , (error)=>{
+      if(error){
+          console.log("something went wrong");
+      }
+      else{
+          console.log("ok!");
+      }
+  })
 </pre>
 
 
